@@ -1,35 +1,35 @@
 export type NavigationItem = {
-  label: string;
+  key: "hero" | "projects" | "education" | "about" | "skills" | "testimonials" | "contact";
   href: string;
 };
 
 export const navigationItems: NavigationItem[] = [
   {
-    label: "Inicio",
+    key: "hero",
     href: "#hero",
   },
   {
-    label: "Proyectos",
+    key: "projects",
     href: "#projects",
   },
   {
-    label: "Formación",
+    key: "education",
     href: "#education",
   },
   {
-    label: "Conóceme",
+    key: "about",
     href: "#about",
   },
   {
-    label: "Habilidades",
+    key: "skills",
     href: "#skills",
   },
   {
-    label: "Testimonios",
+    key: "testimonials",
     href: "#testimonials",
   },
   {
-    label: "Contacto",
+    key: "contact",
     href: "#contact",
   },
 ];

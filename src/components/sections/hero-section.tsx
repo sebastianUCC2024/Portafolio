@@ -1,9 +1,13 @@
-import Container from "../layout/container";
+"use client";
+
+import Container from "@/src/components/layout/container";
+import { useLanguage } from "@/src/components/providers/language-provider";
+
 const quickStats = [
-  { value: "4", label: "Proyectos" },
-  { value: "5°", label: "Semestre" },
-  { value: "3+", label: "Tecnologías" },
-];
+  { value: "4", key: "projects" },
+  { value: "5°", key: "semester" },
+  { value: "3+", key: "technologies" },
+] as const;
 
 const floatingTags = [
   { label: "Python + Django", position: "left-8 top-10" },
@@ -11,6 +15,8 @@ const floatingTags = [
 ];
 
 export default function HeroSection() {
+  const { dictionary } = useLanguage();
+
   return (
     <section
       id="hero"
@@ -22,20 +28,18 @@ export default function HeroSection() {
         <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
           <div className="max-w-2xl">
             <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.24em] text-primary sm:text-xs">
-              Portafolio personal profesional
+              {dictionary.hero.badge}
             </span>
 
             <h1 className="mt-6 text-4xl font-semibold leading-[0.95] tracking-tight sm:text-5xl lg:text-7xl">
-              Hola, soy{" "}
-              <span className="text-primary">Juan</span>
+              {dictionary.hero.titleStart}{" "}
+              <span className="text-primary">{dictionary.hero.titleHighlight}</span>
               <br />
-              Patiño
+              {dictionary.hero.titleEnd}
             </h1>
 
             <p className="mt-6 max-w-xl text-sm leading-7 text-white/70 sm:text-base">
-              Soy estudiante de Ingeniería de Software y me enfoco en construir
-              experiencias digitales modernas, limpias y funcionales, con una
-              visión orientada al desarrollo web profesional.
+              {dictionary.hero.description}
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -43,28 +47,28 @@ export default function HeroSection() {
                 href="#projects"
                 className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-black transition-transform duration-300 hover:scale-[1.02]"
               >
-                Ver proyectos
+                {dictionary.hero.primaryAction}
               </a>
 
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3 text-sm font-medium text-white/80 transition-all duration-300 hover:border-primary/40 hover:text-primary"
               >
-                Contáctame
+                {dictionary.hero.secondaryAction}
               </a>
             </div>
 
             <div className="mt-10 grid max-w-md grid-cols-3 gap-3 sm:gap-4">
               {quickStats.map((stat) => (
                 <div
-                  key={stat.label}
+                  key={stat.key}
                   className="rounded-2xl border border-white/8 bg-card/70 px-4 py-4 backdrop-blur-sm"
                 >
                   <p className="text-lg font-semibold text-foreground sm:text-xl">
                     {stat.value}
                   </p>
                   <p className="mt-1 text-xs text-white/55 sm:text-sm">
-                    {stat.label}
+                    {dictionary.hero.stats[stat.key]}
                   </p>
                 </div>
               ))}

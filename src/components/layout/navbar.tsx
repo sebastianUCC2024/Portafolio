@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import Container from "./container";
+import Container from "@/src/components/layout/container";
 import { navigationItems } from "@/src/data/navigation";
+import { useLanguage } from "@/src/components/providers/language-provider";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { dictionary, toggleLocale } = useLanguage();
 
   const handleCloseMenu = () => {
     setIsMenuOpen(false);
@@ -20,7 +22,7 @@ export default function Navbar() {
             className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-foreground transition-colors duration-300 hover:text-primary"
           >
             <span className="inline-block h-2 w-2 rounded-full bg-primary shadow-[0_0_20px_rgba(25,230,179,0.45)]" />
-            <span>Juan Patiño</span>
+            <span>{dictionary.navbar.brand}</span>
           </a>
 
           <nav className="hidden items-center gap-8 lg:flex">
@@ -30,7 +32,11 @@ export default function Navbar() {
                 href={item.href}
                 className="text-sm font-medium text-white/65 transition-all duration-300 hover:text-primary"
               >
-                {item.label}
+                {
+                  dictionary.navigation[
+                    item.key as keyof typeof dictionary.navigation
+                  ]
+                }
               </a>
             ))}
           </nav>
@@ -38,22 +44,27 @@ export default function Navbar() {
           <div className="hidden items-center gap-3 lg:flex">
             <button
               type="button"
+              onClick={toggleLocale}
               className="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/70 transition-all duration-300 hover:border-primary/40 hover:text-primary"
             >
-              ES
+              {dictionary.navbar.languageLabel}
             </button>
 
-            <button
-              type="button"
+            <a
+              href="#contact"
               className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-black transition-transform duration-300 hover:scale-[1.02]"
             >
-              Contáctame
-            </button>
+              {dictionary.navbar.contact}
+            </a>
           </div>
 
           <button
             type="button"
-            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={
+              isMenuOpen
+                ? dictionary.navbar.closeMenu
+                : dictionary.navbar.openMenu
+            }
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((prev) => !prev)}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white/80 transition-all duration-300 hover:border-primary/40 hover:text-primary lg:hidden"
@@ -92,7 +103,11 @@ export default function Navbar() {
                   onClick={handleCloseMenu}
                   className="rounded-2xl px-4 py-3 text-sm font-medium text-white/75 transition-all duration-300 hover:bg-white/5 hover:text-primary"
                 >
-                  {item.label}
+                  {
+                    dictionary.navigation[
+                      item.key as keyof typeof dictionary.navigation
+                    ]
+                  }
                 </a>
               ))}
             </nav>
@@ -100,9 +115,10 @@ export default function Navbar() {
             <div className="mt-4 flex flex-col gap-3 border-t border-white/8 pt-4">
               <button
                 type="button"
+                onClick={toggleLocale}
                 className="rounded-full border border-white/10 px-4 py-3 text-sm font-medium text-white/70 transition-all duration-300 hover:border-primary/40 hover:text-primary"
               >
-                Idioma: ES
+                {dictionary.navbar.mobileLanguageLabel}
               </button>
 
               <a
@@ -110,7 +126,7 @@ export default function Navbar() {
                 onClick={handleCloseMenu}
                 className="rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-black transition-transform duration-300 hover:scale-[1.01]"
               >
-                Contáctame
+                {dictionary.navbar.contact}
               </a>
             </div>
           </div>
