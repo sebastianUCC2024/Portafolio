@@ -5,6 +5,7 @@ import ProjectsSection from "@/src/components/sections/projects-section";
 import EducationSection from "@/src/components/sections/education-section";
 import AboutSection from "@/src/components/sections/about-section";
 import SkillsSection from "@/src/components/sections/skills-section";
+import TestimonialsSection from "@/src/components/sections/testimonials-section";
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
       <AboutSection />
 
       <SkillsSection />
+
+      <TestimonialsSection />
 
       <section id="contact" className="py-24 sm:py-28 lg:py-32">
         <Container>

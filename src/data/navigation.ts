@@ -25,6 +25,10 @@ export const navigationItems: NavigationItem[] = [
     href: "#skills",
   },
   {
+    label: "Testimonios",
+    href: "#testimonials",
+  },
+  {
     label: "Contacto",
     href: "#contact",
   },
