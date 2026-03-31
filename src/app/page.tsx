@@ -1,4 +1,5 @@
 import Navbar from "@/src/components/layout/navbar";
+import Footer from "@/src/components/layout/footer";
 import HeroSection from "@/src/components/sections/hero-section";
 import ProjectsSection from "@/src/components/sections/projects-section";
 import EducationSection from "@/src/components/sections/education-section";
@@ -18,6 +19,7 @@ export default function Home() {
       <SkillsSection />
       <TestimonialsSection />
       <ContactSection />
+      <Footer />
     </main>
   );
 }
