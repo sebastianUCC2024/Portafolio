@@ -1,6 +1,7 @@
-import Container from "../components/layout/container";
-import Navbar from "../components/layout/navbar";
-import HeroSection from "../components/sections/hero-section";
+import Navbar from "@/src/components/layout/navbar";
+import Container from "@/src/components/layout/container";
+import HeroSection from "@/src/components/sections/hero-section";
+import ProjectsSection from "@/src/components/sections/projects-section";
 
 export default function Home() {
   return (
@@ -9,16 +10,7 @@ export default function Home() {
 
       <HeroSection />
 
-      <section
-        id="projects"
-        className="border-b border-white/5 py-24 sm:py-28 lg:py-32"
-      >
-        <Container>
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Proyectos
-          </h2>
-        </Container>
-      </section>
+      <ProjectsSection />
 
       <section
         id="education"
