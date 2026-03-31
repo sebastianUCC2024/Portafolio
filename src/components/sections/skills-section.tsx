@@ -1,7 +1,11 @@
+"use client";
+
 import Container from "@/src/components/layout/container";
-import { skillCategories } from "@/src/data/skills";
+import { useLanguage } from "@/src/components/providers/language-provider";
 
 export default function SkillsSection() {
+  const { dictionary } = useLanguage();
+
   return (
     <section
       id="skills"
@@ -10,22 +14,20 @@ export default function SkillsSection() {
       <Container>
         <div className="max-w-2xl">
           <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-            Habilidades y tecnologías
+            {dictionary.skillsSection.badge}
           </span>
 
           <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-            Stack y capacidades técnicas
+            {dictionary.skillsSection.title}
           </h2>
 
           <p className="mt-5 text-sm leading-7 text-white/70 sm:text-base">
-            Una visión general de las tecnologías, herramientas y prácticas que
-            estoy fortaleciendo para construir productos web funcionales, modernos
-            y bien estructurados.
+            {dictionary.skillsSection.description}
           </p>
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {skillCategories.map((category) => (
+          {dictionary.skillsSection.categories.map((category) => (
             <article
               key={category.id}
               className="rounded-[1.75rem] border border-white/8 bg-[linear-gradient(180deg,rgba(18,24,33,0.92),rgba(11,15,20,0.96))] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:p-7"
@@ -41,7 +43,7 @@ export default function SkillsSection() {
                 </div>
 
                 <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
-                  {category.items.length} items
+                  {category.items.length} {dictionary.skillsSection.itemsLabel}
                 </span>
               </div>
 

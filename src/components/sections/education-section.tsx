@@ -1,7 +1,11 @@
+"use client";
+
 import Container from "@/src/components/layout/container";
-import { education } from "@/src/data/education";
+import { useLanguage } from "@/src/components/providers/language-provider";
 
 export default function EducationSection() {
+  const { dictionary } = useLanguage();
+
   return (
     <section
       id="education"
@@ -10,16 +14,15 @@ export default function EducationSection() {
       <Container>
         <div className="max-w-2xl">
           <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-            {education.badge}
+            {dictionary.educationSection.badge}
           </span>
 
           <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-            Experiencia Académica
+            {dictionary.educationSection.title}
           </h2>
 
           <p className="mt-5 text-sm leading-7 text-white/70 sm:text-base">
-            Formación orientada al desarrollo de software con enfoque en lógica,
-            estructura, construcción web y crecimiento técnico progresivo.
+            {dictionary.educationSection.description}
           </p>
         </div>
 
@@ -27,30 +30,30 @@ export default function EducationSection() {
           <div className="grid gap-0 lg:grid-cols-[1.2fr_0.8fr]">
             <div className="border-b border-white/8 p-6 sm:p-8 lg:border-b-0 lg:border-r">
               <div className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-                {education.period}
+                {dictionary.educationSection.period}
               </div>
 
               <p className="mt-6 text-sm font-medium text-primary">
-                {education.institution}
+                {dictionary.educationSection.institution}
               </p>
 
               <h3 className="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                {education.program}
+                {dictionary.educationSection.program}
               </h3>
 
               <p className="mt-5 max-w-2xl text-sm leading-7 text-white/70 sm:text-base">
-                {education.description}
+                {dictionary.educationSection.body}
               </p>
             </div>
 
             <div className="p-6 sm:p-8">
               <div>
                 <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/55">
-                  Áreas de enfoque
+                  {dictionary.educationSection.focusTitle}
                 </h4>
 
                 <ul className="mt-5 space-y-3">
-                  {education.focusAreas.map((item) => (
+                  {dictionary.educationSection.focusAreas.map((item) => (
                     <li
                       key={item}
                       className="flex items-start gap-3 text-sm text-white/75"
@@ -64,11 +67,11 @@ export default function EducationSection() {
 
               <div className="mt-8 border-t border-white/8 pt-6">
                 <h4 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/55">
-                  Habilidades adquiridas
+                  {dictionary.educationSection.achievementsTitle}
                 </h4>
 
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                  {education.achievements.map((item) => (
+                  {dictionary.educationSection.achievements.map((item) => (
                     <li
                       key={item}
                       className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3 text-sm text-white/75"

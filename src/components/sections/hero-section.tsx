@@ -9,10 +9,7 @@ const quickStats = [
   { value: "3+", key: "technologies" },
 ] as const;
 
-const floatingTags = [
-  { label: "Python + Django", position: "left-8 top-10" },
-  { label: "TypeScript", position: "right-8 bottom-12" },
-];
+const floatingPositions = ["left-8 top-10", "right-8 bottom-12"] as const;
 
 export default function HeroSection() {
   const { dictionary } = useLanguage();
@@ -77,12 +74,12 @@ export default function HeroSection() {
 
           <div className="relative mx-auto w-full max-w-md lg:max-w-none">
             <div className="relative flex min-h-[360px] items-center justify-center rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(18,24,33,0.92),rgba(11,15,20,0.96))] p-8 shadow-[0_25px_80px_rgba(0,0,0,0.35)] sm:min-h-[420px]">
-              {floatingTags.map((tag) => (
+              {dictionary.hero.floatingTags.map((label, index) => (
                 <span
-                  key={tag.label}
-                  className={`absolute hidden rounded-full border border-primary/20 bg-background/80 px-3 py-1.5 text-[11px] font-medium text-primary shadow-[0_10px_30px_rgba(0,0,0,0.25)] backdrop-blur-md sm:inline-flex ${tag.position}`}
+                  key={label}
+                  className={`absolute hidden rounded-full border border-primary/20 bg-background/80 px-3 py-1.5 text-[11px] font-medium text-primary shadow-[0_10px_30px_rgba(0,0,0,0.25)] backdrop-blur-md sm:inline-flex ${floatingPositions[index]}`}
                 >
-                  {tag.label}
+                  {label}
                 </span>
               ))}
 

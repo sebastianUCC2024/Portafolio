@@ -1,7 +1,12 @@
+"use client";
+
 import Container from "@/src/components/layout/container";
-import { footerData } from "@/src/data/footer";
+import { navigationItems } from "@/src/data/navigation";
+import { useLanguage } from "@/src/components/providers/language-provider";
 
 export default function Footer() {
+  const { dictionary } = useLanguage();
+
   return (
     <footer className="border-t border-white/6 bg-white/[0.02]">
       <Container>
@@ -12,27 +17,27 @@ export default function Footer() {
               className="inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-foreground transition-colors duration-300 hover:text-primary"
             >
               <span className="inline-block h-2 w-2 rounded-full bg-primary shadow-[0_0_20px_rgba(25,230,179,0.4)]" />
-              <span>{footerData.brandName}</span>
+              <span>{dictionary.footer.brandName}</span>
             </a>
 
             <p className="mt-5 text-sm leading-7 text-white/65">
-              {footerData.description}
+              {dictionary.footer.description}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/50">
-              Navegación
+              {dictionary.footer.navigationTitle}
             </h3>
 
             <nav className="mt-5 flex flex-col gap-3">
-              {footerData.navigation.map((item) => (
+              {navigationItems.map((item) => (
                 <a
-                  key={item.id}
+                  key={item.key}
                   href={item.href}
                   className="text-sm text-white/70 transition-colors duration-300 hover:text-primary"
                 >
-                  {item.label}
+                  {dictionary.navigation[item.key]}
                 </a>
               ))}
             </nav>
@@ -40,11 +45,11 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-white/50">
-              Conexiones
+              {dictionary.footer.connectionsTitle}
             </h3>
 
             <div className="mt-5 flex flex-col gap-3">
-              {footerData.socialLinks.map((item) => (
+              {dictionary.footer.socialLinks.map((item) => (
                 <a
                   key={item.id}
                   href={item.href}
@@ -64,12 +69,12 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 border-t border-white/6 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>{footerData.copyright}</p>
+          <p>{dictionary.footer.copyright}</p>
           <a
             href="#hero"
             className="inline-flex w-fit items-center text-white/55 transition-colors duration-300 hover:text-primary"
           >
-            Volver arriba
+            {dictionary.footer.backToTop}
           </a>
         </div>
       </Container>

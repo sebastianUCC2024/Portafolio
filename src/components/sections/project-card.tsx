@@ -1,12 +1,21 @@
-import type { ProjectItem } from "@/src/data/projects";
-
 type ProjectCardProps = {
-  project: ProjectItem;
+  project: {
+    id: string;
+    eyebrow: string;
+    title: string;
+    description: string;
+    features: string[];
+    technologies: string[];
+    primaryAction: string;
+    secondaryAction: string;
+  };
+  previewLabel: string;
   reverse?: boolean;
 };
 
 export default function ProjectCard({
   project,
+  previewLabel,
   reverse = false,
 }: ProjectCardProps) {
   return (
@@ -53,17 +62,17 @@ export default function ProjectCard({
 
         <div className="mt-7 flex flex-wrap gap-3">
           <a
-            href={project.primaryAction.href}
+            href="#"
             className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-black transition-transform duration-300 hover:scale-[1.02]"
           >
-            {project.primaryAction.label}
+            {project.primaryAction}
           </a>
 
           <a
-            href={project.secondaryAction.href}
+            href="#"
             className="inline-flex items-center justify-center rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-white/80 transition-all duration-300 hover:border-primary/40 hover:text-primary"
           >
-            {project.secondaryAction.label}
+            {project.secondaryAction}
           </a>
         </div>
       </div>
@@ -74,10 +83,10 @@ export default function ProjectCard({
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(25,230,179,0.10),transparent_45%)] opacity-80" />
 
           <div className="relative flex min-h-[220px] items-center justify-center rounded-[1.25rem] border border-white/6 bg-white/[0.03] sm:min-h-[260px]">
-            <div className="absolute top-5 left-5 h-10 w-10 rounded-xl border border-primary/15 bg-primary/10" />
+            <div className="absolute left-5 top-5 h-10 w-10 rounded-xl border border-primary/15 bg-primary/10" />
             <div className="text-center">
               <p className="text-xs uppercase tracking-[0.24em] text-white/35">
-                Vista previa
+                {previewLabel}
               </p>
               <p className="mt-3 text-lg font-medium text-white/80">
                 {project.title}

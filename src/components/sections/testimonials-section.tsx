@@ -1,7 +1,11 @@
+"use client";
+
 import Container from "@/src/components/layout/container";
-import { testimonials } from "@/src/data/testimonials";
+import { useLanguage } from "@/src/components/providers/language-provider";
 
 export default function TestimonialsSection() {
+  const { dictionary } = useLanguage();
+
   return (
     <section
       id="testimonials"
@@ -10,29 +14,27 @@ export default function TestimonialsSection() {
       <Container>
         <div className="max-w-2xl">
           <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
-            Testimonios y referencias
+            {dictionary.testimonialsSection.badge}
           </span>
 
           <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-            Lo que dicen sobre mi trabajo
+            {dictionary.testimonialsSection.title}
           </h2>
 
           <p className="mt-5 text-sm leading-7 text-white/70 sm:text-base">
-            Referencias que reflejan mi compromiso con el aprendizaje, la
-            organización del trabajo y la construcción de soluciones digitales
-            con criterio técnico y visual.
+            {dictionary.testimonialsSection.description}
           </p>
         </div>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
+          {dictionary.testimonialsSection.items.map((testimonial) => (
             <article
               key={testimonial.id}
               className="group rounded-[1.75rem] border border-white/8 bg-[linear-gradient(180deg,rgba(18,24,33,0.94),rgba(11,15,20,0.98))] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.2)] transition-transform duration-300 hover:-translate-y-1 sm:p-7"
             >
               <div className="flex items-center justify-between gap-4">
                 <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
-                  Referencia
+                  {dictionary.testimonialsSection.cardBadge}
                 </span>
 
                 <span className="text-white/20 transition-colors duration-300 group-hover:text-primary/40">
