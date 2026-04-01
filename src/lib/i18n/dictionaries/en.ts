@@ -280,4 +280,14 @@ export const enDictionary: TranslationSchema = {
       { id: "email", label: "Email", href: "mailto:juan@example.com" },
     ],
   },
+  pianoSection: {
+    badge: "Interactive",
+    title: "Skills Piano",
+    description:
+      "Each key represents one of my technical skills. Play the piano with your mouse or use keyboard keys (A, S, D, F, G, H, J, K for white keys and W, E, T, Y, U for black keys) to discover my tech stack in a unique way.",
+    placeholder: "Press a key to see the skill",
+    whiteKeys: "White keys: A-K",
+    blackKeys: "Black keys: W,E,T,Y,U",
+    progress: "skills discovered",
+  },
 };
