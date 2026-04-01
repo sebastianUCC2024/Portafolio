@@ -280,4 +280,14 @@ export const esDictionary: TranslationSchema = {
       { id: "email", label: "Correo", href: "mailto:juan@example.com" },
     ],
   },
+  pianoSection: {
+    badge: "Interactivo",
+    title: "Piano de Habilidades",
+    description:
+      "Cada tecla representa una de mis habilidades técnicas. Toca el piano con el mouse o usa las teclas del teclado (A, S, D, F, G, H, J, K para blancas y W, E, T, Y, U para negras) para descubrir mi stack tecnológico de una forma única.",
+    placeholder: "Toca una tecla para ver la habilidad",
+    whiteKeys: "Teclas blancas: A-K",
+    blackKeys: "Teclas negras: W,E,T,Y,U",
+    progress: "habilidades descubiertas",
+  },
 };

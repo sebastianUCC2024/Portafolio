@@ -20,7 +20,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <article
-      className={`grid items-center gap-8 border-t border-white/6 py-10 lg:grid-cols-2 lg:gap-12 lg:py-14 ${
+      className={`grid items-center gap-8 border-t border-border py-10 lg:grid-cols-2 lg:gap-12 lg:py-14 ${
         reverse ? "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1" : ""
       }`}
     >
@@ -33,15 +33,16 @@ export default function ProjectCard({
           {project.title}
         </h3>
 
-        <p className="mt-4 text-sm leading-7 text-white/70 sm:text-base">
+        <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
           {project.description}
         </p>
 
         <ul className="mt-5 space-y-2">
-          {project.features.map((feature) => (
+          {project.features.map((feature, index) => (
             <li
               key={feature}
-              className="flex items-start gap-3 text-sm text-white/75"
+              className="flex items-start gap-3 text-sm text-muted-foreground transition-all duration-300 hover:text-foreground"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
               <span>{feature}</span>
@@ -53,7 +54,7 @@ export default function ProjectCard({
           {project.technologies.map((technology) => (
             <span
               key={technology}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/70"
+              className="rounded-full border border-border bg-accent px-3 py-1 text-xs font-medium text-muted-foreground transition-all duration-300 hover:border-primary/30 hover:text-primary hover:scale-105"
             >
               {technology}
             </span>
@@ -63,14 +64,14 @@ export default function ProjectCard({
         <div className="mt-7 flex flex-wrap gap-3">
           <a
             href="#"
-            className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-black transition-transform duration-300 hover:scale-[1.02]"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
           >
             {project.primaryAction}
           </a>
 
           <a
             href="#"
-            className="inline-flex items-center justify-center rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-white/80 transition-all duration-300 hover:border-primary/40 hover:text-primary"
+            className="inline-flex items-center justify-center rounded-full border border-border px-5 py-2.5 text-sm font-medium text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-primary hover:scale-105"
           >
             {project.secondaryAction}
           </a>
@@ -78,17 +79,17 @@ export default function ProjectCard({
       </div>
 
       <div className="mx-auto w-full max-w-xl">
-        <div className="group relative overflow-hidden rounded-[1.75rem] border border-white/8 bg-[linear-gradient(180deg,rgba(20,28,38,0.96),rgba(12,16,23,0.98))] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.28)] transition-transform duration-300 hover:-translate-y-1">
-          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/80 to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(25,230,179,0.10),transparent_45%)] opacity-80" />
+        <div className="group relative overflow-hidden rounded-[1.75rem] border border-border bg-[linear-gradient(180deg,rgba(20,28,38,0.96),rgba(12,16,23,0.98))] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.28)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(25,230,179,0.10),transparent_45%)] opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
 
-          <div className="relative flex min-h-[220px] items-center justify-center rounded-[1.25rem] border border-white/6 bg-white/[0.03] sm:min-h-[260px]">
-            <div className="absolute left-5 top-5 h-10 w-10 rounded-xl border border-primary/15 bg-primary/10" />
-            <div className="text-center">
-              <p className="text-xs uppercase tracking-[0.24em] text-white/35">
+          <div className="relative flex min-h-[220px] items-center justify-center rounded-[1.25rem] border border-border bg-accent sm:min-h-[260px]">
+            <div className="absolute left-5 top-5 h-10 w-10 rounded-xl border border-primary/15 bg-primary/10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12" />
+            <div className="text-center transition-transform duration-500 group-hover:scale-105">
+              <p className="text-xs uppercase tracking-[0.24em] text-muted">
                 {previewLabel}
               </p>
-              <p className="mt-3 text-lg font-medium text-white/80">
+              <p className="mt-3 text-lg font-medium text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
                 {project.title}
               </p>
             </div>
