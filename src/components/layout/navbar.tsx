@@ -105,13 +105,6 @@ export default function Navbar() {
             >
               {dictionary.navbar.languageLabel}
             </button>
-
-            <a
-              href="#contact"
-              className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
-            >
-              {dictionary.navbar.contact}
-            </a>
           </div>
 
           <button
@@ -168,33 +161,23 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="mt-4 flex flex-col gap-3 border-t border-border pt-4">
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={toggleTheme}
-                  className="flex h-12 flex-1 items-center justify-center gap-2 rounded-full border border-border text-sm font-medium text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-primary"
-                >
-                  {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-                  <span>{theme === "dark" ? "Modo claro" : "Modo oscuro"}</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={toggleLocale}
-                  className="flex h-12 flex-1 items-center justify-center rounded-full border border-border text-sm font-medium text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-primary"
-                >
-                  {dictionary.navbar.mobileLanguageLabel}
-                </button>
-              </div>
-
-              <a
-                href="#contact"
-                onClick={handleCloseMenu}
-                className="rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-black transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-primary/25"
+            <div className="mt-4 flex gap-2 border-t border-border pt-4">
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="flex h-12 flex-1 items-center justify-center gap-2 rounded-full border border-border text-sm font-medium text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-primary"
               >
-                {dictionary.navbar.contact}
-              </a>
+                {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+                <span>{theme === "dark" ? "Modo claro" : "Modo oscuro"}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={toggleLocale}
+                className="flex h-12 flex-1 items-center justify-center rounded-full border border-border text-sm font-medium text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-primary"
+              >
+                {dictionary.navbar.mobileLanguageLabel}
+              </button>
             </div>
           </div>
         </div>
