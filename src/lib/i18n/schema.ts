@@ -134,4 +134,13 @@ export type TranslationSchema = {
       href: string;
     }[];
   };
+  pianoSection: {
+    badge: string;
+    title: string;
+    description: string;
+    placeholder: string;
+    whiteKeys: string;
+    blackKeys: string;
+    progress: string;
+  };
 };
