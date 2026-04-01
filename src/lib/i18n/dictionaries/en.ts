@@ -15,6 +15,7 @@ export const enDictionary: TranslationSchema = {
     education: "Education",
     about: "About",
     skills: "Skills",
+    piano: "Piano",
     testimonials: "Testimonials",
     contact: "Contact",
   },
@@ -279,5 +280,15 @@ export const enDictionary: TranslationSchema = {
       { id: "linkedin", label: "LinkedIn", href: "https://linkedin.com/in/tuusuario" },
       { id: "email", label: "Email", href: "mailto:juan@example.com" },
     ],
+  },
+  pianoSection: {
+    badge: "Interactive",
+    title: "Skills Piano",
+    description:
+      "Each key represents one of my technical skills. Play the piano with your mouse or use keyboard keys (A, S, D, F, G, H, J, K for white keys and W, E, T, Y, U for black keys) to discover my tech stack in a unique way.",
+    placeholder: "Press a key to see the skill",
+    whiteKeys: "White keys: A-K",
+    blackKeys: "Black keys: W,E,T,Y,U",
+    progress: "skills discovered",
   },
 };

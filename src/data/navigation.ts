@@ -1,5 +1,5 @@
 export type NavigationItem = {
-  key: "hero" | "projects" | "education" | "about" | "skills" | "testimonials" | "contact";
+  key: "hero" | "projects" | "education" | "about" | "skills" | "piano" | "testimonials" | "contact";
   href: string;
 };
 
@@ -23,6 +23,10 @@ export const navigationItems: NavigationItem[] = [
   {
     key: "skills",
     href: "#skills",
+  },
+  {
+    key: "piano",
+    href: "#piano",
   },
   {
     key: "testimonials",

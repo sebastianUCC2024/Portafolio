@@ -12,9 +12,10 @@ export const esDictionary: TranslationSchema = {
   navigation: {
     hero: "Inicio",
     projects: "Proyectos",
-    education: "Formación",
-    about: "Conóceme",
+    education: "Formacion",
+    about: "Conoceme",
     skills: "Habilidades",
+    piano: "Piano",
     testimonials: "Testimonios",
     contact: "Contacto",
   },

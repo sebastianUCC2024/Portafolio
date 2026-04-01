@@ -5,6 +5,7 @@ import ProjectsSection from "@/src/components/sections/projects-section";
 import EducationSection from "@/src/components/sections/education-section";
 import AboutSection from "@/src/components/sections/about-section";
 import SkillsSection from "@/src/components/sections/skills-section";
+import PianoSection from "@/src/components/sections/piano-section";
 import TestimonialsSection from "@/src/components/sections/testimonials-section";
 import ContactSection from "@/src/components/sections/contact-section";
 
@@ -17,6 +18,7 @@ export default function Home() {
       <EducationSection />
       <AboutSection />
       <SkillsSection />
+      <PianoSection />
       <TestimonialsSection />
       <ContactSection />
       <Footer />
