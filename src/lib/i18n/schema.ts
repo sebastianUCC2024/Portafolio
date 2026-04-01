@@ -13,7 +13,6 @@ export type TranslationSchema = {
     education: string;
     about: string;
     skills: string;
-    piano: string;
     testimonials: string;
     contact: string;
   };

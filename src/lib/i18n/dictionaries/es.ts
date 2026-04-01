@@ -15,7 +15,6 @@ export const esDictionary: TranslationSchema = {
     education: "Formacion",
     about: "Conoceme",
     skills: "Habilidades",
-    piano: "Piano",
     testimonials: "Testimonios",
     contact: "Contacto",
   },

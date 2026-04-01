@@ -1,5 +1,6 @@
 import Navbar from "@/src/components/layout/navbar";
 import Footer from "@/src/components/layout/footer";
+import ScrollNav from "@/src/components/layout/scroll-nav";
 import HeroSection from "@/src/components/sections/hero-section";
 import ProjectsSection from "@/src/components/sections/projects-section";
 import EducationSection from "@/src/components/sections/education-section";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
+      <ScrollNav />
       <HeroSection />
       <ProjectsSection />
       <EducationSection />

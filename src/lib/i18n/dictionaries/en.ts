@@ -15,7 +15,6 @@ export const enDictionary: TranslationSchema = {
     education: "Education",
     about: "About",
     skills: "Skills",
-    piano: "Piano",
     testimonials: "Testimonials",
     contact: "Contact",
   },
