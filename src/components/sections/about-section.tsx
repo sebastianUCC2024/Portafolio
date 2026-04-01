@@ -35,9 +35,11 @@ export default function AboutSection() {
 
           {/* Columna izquierda */}
           <div
-            className={`max-w-2xl transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? "translateY(0)" : "translateY(20px)",
+              transition: "opacity 0.6s ease, transform 0.6s ease",
+            }}
           >
             <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-primary">
               {dictionary.aboutSection.badge}
@@ -85,9 +87,11 @@ export default function AboutSection() {
 
           {/* Columna derecha */}
           <aside
-            className={`relative transition-all duration-700 delay-200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? "translateY(0)" : "translateY(20px)",
+              transition: "opacity 0.6s ease 200ms, transform 0.6s ease 200ms",
+            }}
           >
             {/* Tarjeta con foto de perfil */}
             <div className="mb-5 flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-lg">
